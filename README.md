@@ -10,17 +10,17 @@ Introduction
   1. Install python 3
   2. Install latest version of django
   3. Go to  /usr/local/lib/pyton2.7/dist-packages/django/contrib/auth/admin.py
-
-        # Just before the list_display add this def that seeks for the groups:
-
+  
+        Just before the list_display add this def that seeks for the groups:
+        
         def group(self, user):
             groups = []
             for group in user.groups.all():
                 groups.append(group.name)
             return ' '.join(groups)
         group.short_description = 'Groups'
-
-        list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'group')
+        
+        list_display = ('username', 'email', 'first_name', 'last_name', 'group')
         
   4. Launch CMD window and go to the directory containing all these files
   5. Type 'python manage.py runserver'
